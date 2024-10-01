@@ -1,4 +1,4 @@
-// pages/api/todos.js
+// app/api/route.js
 import { ConnectDB } from "@/lib/config/db";
 import TodoModel from "@/lib/config/models/TodoModel";
 import { NextResponse } from "next/server";
