@@ -1,6 +1,13 @@
+import Cors from 'cors';
 import { ConnectDB } from "@/lib/config/db";
 import TodoModel from "@/lib/config/models/TodoModel";
 import { NextResponse } from "next/server";
+
+// Inicializa o middleware CORS
+const cors = Cors({
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    origin: '*', // Defina a origem permitida. Use '*' para permitir todas as origens.
+  });
 
 const LoadDB = async () => {
     await ConnectDB()

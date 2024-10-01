@@ -90,6 +90,7 @@ export default function Home() {
       })
       await fetchTodos()
     } catch (error) {
+      console.log(error);
       toast.error(error.response.data)
     }
 
