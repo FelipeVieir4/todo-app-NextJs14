@@ -33,10 +33,10 @@ export default function Home() {
       fetchTodos()
     } catch (error) {
       if (error.response.data.message) {
-        toast.error("Success")
+
         toast.error(error.response.data.message)
       } else {
-        toast.error("Error")
+
         toast.error(error.message)
       }
 
@@ -82,6 +82,7 @@ export default function Home() {
       //API CODE
       const response = await axios.post("/api", formData)
       console.log(response)
+      toast.success("Success")
       toast.success(response.data.message)
       setFormData({
         title: '',
@@ -89,6 +90,7 @@ export default function Home() {
       })
       await fetchTodos()
     } catch (error) {
+      toast.error("Error")
       console.log(error)
       toast.error(error.response.data.message)
     }
