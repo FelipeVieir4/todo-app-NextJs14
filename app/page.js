@@ -29,15 +29,15 @@ export default function Home() {
         }
       })
 
-      toast.success(response.data.message)
+      toast.success(response.data)
       fetchTodos()
     } catch (error) {
-      if (error.response.data.message) {
+      if (error.response.data) {
 
-        toast.error(error.response.data.message)
+        toast.error(error.response.data)
       } else {
 
-        toast.error(error.message)
+        toast.error(error)
       }
 
     }
@@ -51,13 +51,13 @@ export default function Home() {
         }
       })
 
-      toast.success(response.data.message)
+      toast.success(response.data)
       fetchTodos()
     } catch (error) {
-      if (error.response.data.message) {
-        toast.error(error.response.data.message)
+      if (error.response.data) {
+        toast.error(error.response.data)
       } else {
-        toast.error(error.message)
+        toast.error(error)
       }
 
     }
@@ -82,17 +82,15 @@ export default function Home() {
       //API CODE
       const response = await axios.post("/api", formData)
       console.log(response)
-      toast.success("Success")
-      toast.success(response.data.message)
+
+      toast.success(response.data)
       setFormData({
         title: '',
         description: ''
       })
       await fetchTodos()
     } catch (error) {
-      toast.error("Error")
-      console.log(error)
-      toast.error(error.response.data.message)
+      toast.error(error.response.data)
     }
 
   }
