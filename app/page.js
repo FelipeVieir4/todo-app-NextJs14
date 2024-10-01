@@ -33,8 +33,10 @@ export default function Home() {
       fetchTodos()
     } catch (error) {
       if (error.response.data.message) {
+        toast.error("Success")
         toast.error(error.response.data.message)
       } else {
+        toast.error("Error")
         toast.error(error.message)
       }
 
