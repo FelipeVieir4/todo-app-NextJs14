@@ -1,4 +1,3 @@
-import Todo from "@/components/Todo";
 import { ConnectDB } from "@/lib/config/db";
 import TodoModel from "@/lib/config/models/TodoModel";
 import { NextResponse } from "next/server";
@@ -62,6 +61,3 @@ export async function PUT(request) {
         return NextResponse.json({ message: error.message }, { status: 500 });
     }
 }
-// export async function DELETE(request) {
-//     return NextResponse.json({ message: "get method hit" })
-// }

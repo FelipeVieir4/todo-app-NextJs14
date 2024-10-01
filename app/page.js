@@ -9,8 +9,6 @@ import 'react-toastify/dist/ReactToastify.min.css';
 
 export default function Home() {
 
-  const API_URL = '"http://localhost:3000'
-
   const [formData, setFormData] = useState({
     title: '',
     description: ''
@@ -80,7 +78,6 @@ export default function Home() {
 
     try {
       //API CODE
-      console.log(`${API_URL}/api`, formData)
       const response = await axios.post("/api", formData)
       console.log(response)
       toast.success(response.data.message)
@@ -90,7 +87,7 @@ export default function Home() {
       })
       await fetchTodos()
     } catch (error) {
-      // console.log(error.response.data.message)
+      console.log(error)
       toast.error(error.response.data.message)
     }
 
