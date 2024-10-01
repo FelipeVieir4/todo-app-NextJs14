@@ -32,7 +32,7 @@ export default function Home() {
       toast.success(response.data.message)
       fetchTodos()
     } catch (error) {
-      if (error.response.data) {
+      if (error.response.data.message) {
 
         toast.error(error.response.data.message)
       } else {

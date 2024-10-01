@@ -17,12 +17,12 @@ export async function POST(request) {
     const { title, description } = await request.json();
 
     if (title === '' || description === '') {
-        return NextResponse.json('Title and description are required', { status: 400 });
+        return NextResponse.json({message:'Title and description are required'}, { status: 400 });
     }
 
     try {
         await TodoModel.create({ title, description });
-        return NextResponse.json("Todo Created", { status: 200 });
+        return NextResponse.json({message:"Todo Created"}, { status: 200 });
     } catch (error) {
         return NextResponse.json(error.message, { status: 500 });
     }
@@ -32,12 +32,12 @@ export async function DELETE(request) {
     const mongoId = await request.nextUrl.searchParams.get('mongoId');
 
     if (!mongoId) {
-        return NextResponse.json('Mongo ID is required', { status: 400 });
+        return NextResponse.json({message:'Mongo ID is required'}, { status: 400 });
     }
 
     try {
         await TodoModel.findByIdAndDelete(mongoId);
-        return NextResponse.json('Todo Deleted', { status: 200 });
+        return NextResponse.json({message:'Todo Deleted'}, { status: 200 });
     } catch (error) {
         return NextResponse.json(error.message, { status: 500 });
 
@@ -56,7 +56,7 @@ export async function PUT(request) {
                 isCompleted: true
             }
         });
-        return NextResponse.json('Todo Updated', { status: 200 });
+        return NextResponse.json({message:'Todo Updated'}, { status: 200 });
     } catch (error) {
         return NextResponse.json(error.message, { status: 500 });
     }
