@@ -83,7 +83,7 @@ export default function Home() {
       const response = await axios.post("/api", formData)
       console.log(response)
 
-      toast.success(response.data.message)
+      toast.success(response.data.message || response.message)
       setFormData({
         title: '',
         description: ''
