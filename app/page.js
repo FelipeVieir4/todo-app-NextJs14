@@ -29,12 +29,12 @@ export default function Home() {
         }
       })
 
-      toast.success(response.data)
+      toast.success(response.data.message)
       fetchTodos()
     } catch (error) {
       if (error.response.data) {
 
-        toast.error(error.response.data)
+        toast.error(error.response.data.message)
       } else {
 
         toast.error(error)
@@ -51,11 +51,11 @@ export default function Home() {
         }
       })
 
-      toast.success(response.data)
+      toast.success(response.data.message)
       fetchTodos()
     } catch (error) {
       if (error.response.data) {
-        toast.error(error.response.data)
+        toast.error(error.response.data.message)
       } else {
         toast.error(error)
       }
@@ -83,7 +83,7 @@ export default function Home() {
       const response = await axios.post("/api", formData)
       console.log(response)
 
-      toast.success(response.data)
+      toast.success(response.data.message)
       setFormData({
         title: '',
         description: ''
@@ -91,7 +91,7 @@ export default function Home() {
       await fetchTodos()
     } catch (error) {
       console.log(error);
-      toast.error(error.response.data)
+      toast.error(error.response.data.message)
     }
 
   }
